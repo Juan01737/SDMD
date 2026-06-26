@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "152742831227",
+    "project_id": "sdmd-83759",
+    "storage_bucket": "sdmd-83759.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:152742831227:android:6eb793af0c28e2b50eeede",
+        "android_client_info": {
+          "package_name": "com.ingsoftware.sdmd"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2TNrIIqneY8BwTQbQKmvkq9wCi-tS_ok"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

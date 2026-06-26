@@ -1,0 +1,58 @@
+package com.ingsoftware.sdmd;
+
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class MainActivity extends AppCompatActivity {
+
+    FirebaseFirestore db;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        // 🔥 Inicializar Firestore
+        db = FirebaseFirestore.getInstance();
+
+        probarFirebase();
+    }
+
+    private void probarFirebase() {
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("mensaje", "Hola Firebase desde Android 🚀");
+        data.put("estado", "OK");
+
+        db.collection("test")
+                .document("conexion")
+                .set(data)
+                .addOnSuccessListener(unused -> {
+                    Toast.makeText(this, "Firebase conectado ✔", Toast.LENGTH_SHORT).show();
+                    Log.d("FIREBASE", "Documento guardado correctamente");
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "Error Firebase ❌", Toast.LENGTH_SHORT).show();
+                    Log.e("FIREBASE", e.getMessage());
+                });
+    }
+}
