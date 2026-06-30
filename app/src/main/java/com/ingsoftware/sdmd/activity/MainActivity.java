@@ -1,4 +1,4 @@
-package com.ingsoftware.sdmd;
+package com.ingsoftware.sdmd.activity;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.ingsoftware.sdmd.R;
 
 import java.util.HashMap;
 import java.util.Map;
